@@ -1,0 +1,16 @@
+{
+    "name": "GitLab MR Pipeline Starter",
+    "description": "Adds the missing add pipeline button to GitLab",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [ {
+        "matches": ["https://gitlab.com/*/*/*/merge_requests/*"],
+        "js": ["main.js"]
+    } ],
+    "web_accessible_resources": [
+        {
+          "resources": [ "injected.js" ],
+          "matches": [ "https://gitlab.com/*" ]
+        }
+    ]
+  }
