@@ -7,7 +7,7 @@ const addPipeline = async () => {
     
     const gitlab = window.gl;
 
-    await fetch(
+    const response = await fetch(
         `https://gitlab.com/api/v4/projects/${gitlab.snowplowStandardContext.data.project_id}/merge_requests/${gitlab.mrWidgetData.iid}/pipelines`, 
         { 
             method: "POST",
@@ -16,7 +16,9 @@ const addPipeline = async () => {
         }
     );
 
-    window.location.reload();
+    if (response.ok) {
+        window.location.reload();
+    }
 }
 
 const addPipelineButton = () => {
